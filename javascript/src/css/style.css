@@ -57,20 +57,33 @@ header{
     list-style:none;
     padding: 0;
 }
-.nav-menu ul li{
+
+.li{
     padding: 4%;
     margin: 2% 0;
     font-size: 20pt;
     vertical-align: middle; 
     cursor: pointer;
+    border-left: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px; 
 }
-.nav-menu ul li:hover{
+.li:hover{
     border: 1px solid #f5f5f5;
     background: #f5f5f5;
+}
+.li-ativada{
+    padding: 4%;
+    margin: 2% 0;
+    font-size: 20pt;
+    vertical-align: middle; 
+    cursor: pointer;
     border-left: none;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    background: #f5f5f5;
 }
+
 .nav-menu a{
     text-decoration: none;
     color: black;
@@ -294,6 +307,8 @@ form{
 .editar #ed-fname,.editar #ed-lname,.editar #avatarr{
     width: 68%;
     display: inline;
+    float: right;
+    margin-right: 7%;
 }
 #avatarr{
     margin-top: 8%;

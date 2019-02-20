@@ -50,7 +50,9 @@ export const Menu = ($sessao) => {
     const h1inse = document.getElementById('h1-inserir');
     const h1edit = document.getElementById('h1-editar');
     const boxes = document.getElementsByClassName('boxes')[0];
-    const boxesfav = document.getElementsByClassName('boxes-fav')[0];
+    const lifav = document.getElementById('li-fav');
+    const liins = document.getElementById('li-ins');
+    const lictt = document.getElementById('li-ctt');
 
     h1inse.style.display = "none";
     h1edit.style.display = "none";
@@ -59,7 +61,17 @@ export const Menu = ($sessao) => {
     edi.style.display = "none";
     pes.style.display = "none";
     boxes.style.display = 'none';
-    boxesfav.style.display = "none";
+
+    if(lifav.className == 'li-ativada'){
+        trocaClasse(lifav,'li-ativada','li');
+    }
+    if(liins.className == 'li-ativada'){
+        trocaClasse(liins,'li-ativada','li');
+    }
+    if(lictt.className == 'li-ativada'){
+        trocaClasse(lictt,'li-ativada','li');
+    }
+
     
     if($sessao == 'inserir'){
         ins.style.display = 'block';
@@ -67,6 +79,7 @@ export const Menu = ($sessao) => {
         document.getElementsByClassName('btn-inserir')[0].onclick = function(){
             Adicionar();
         };
+        trocaClasse(liins,'li','li-ativada');
     }
     else if($sessao == 'editar'){
         edi.style.display = 'block';
@@ -78,16 +91,23 @@ export const Menu = ($sessao) => {
     }
     else if($sessao == 'favoritos'){
         ctt.style.display = "block";
-        boxesfav.style.display = 'flex';
+        boxes.style.display = 'flex';
         pes.style.display = 'block';
         ListarFavoritos(0,10);
+        trocaClasse(lifav,'li','li-ativada');
     }
     else{
         ctt.style.display = "block";
         boxes.style.display = "flex";
         pes.style.display = 'block';
         Listar(0,10);
+        trocaClasse(lictt,'li','li-ativada');
     }
+}
+
+const trocaClasse = (elemento, antiga, nova) => {
+    elemento.classList.remove(antiga);
+    elemento.classList.add(nova);
 }
 
 // MODAL SOBRE

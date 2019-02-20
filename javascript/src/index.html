@@ -10,10 +10,10 @@
     <header class="header">                               
         <nav class="nav-menu" id="nav-menu">
             <ul>
-                <li id="li-ctt"><img class="nav-img" src="img/ctt.png" alt="Contatos">Contatos</li>
-                <li id="li-fav"><img class="nav-img" src="img/favorito.png" alt="Favoritos">Favoritos</li>
-                <li id="li-ins"><img class="nav-img" src="img/more.png" alt="Inserir">Inserir</li>
-                <li id="li-sobre"><img class="nav-img" src="img/sobre.png" alt="Sobre">Sobre</li>
+                <li class="li" id="li-ctt"><img class="nav-img" src="img/ctt.png" alt="Contatos">Contatos</li>
+                <li class="li" id="li-fav"><img class="nav-img" src="img/favorito.png" alt="Favoritos">Favoritos</li>
+                <li class="li" id="li-ins"><img class="nav-img" src="img/more.png" alt="Inserir">Inserir</li>
+                <li class="li" id="li-sobre"><img class="nav-img" src="img/sobre.png" alt="Sobre">Sobre</li>
             </ul>
         </nav>
     </header>
@@ -39,9 +39,6 @@
             <div class="boxes" id="boxes">
                 <!-- inner html -->
             </div>
-            <div class="boxes-fav" id="boxes-fav">
-
-            </div>
             <button class="btn-mais">Exibir mais</button>
         </section>
 
@@ -52,13 +49,13 @@
                 <input class="inputs" type="text" name="fname" id="in-fname" maxlength="20" placeholder="Primeiro Nome" required>
                 <input class="inputs" type="text" name="lname" id="in-lname" maxlength="30" placeholder="Sobrenome" required>
                 <input class="inputs" type="text" id="in-avatar" placeholder="URL da imagem" required>
-                <input class="inputs" type="email" name="email" id="in-email" placeholder="Email: exemplo@exemplo.com" required>
+                <input class="inputs" type="email" name="email" id="in-email" placeholder="Email: exemplo@exemplo.com">
                 <input class="inpcheck" type="radio" name="gender" id="in-gender" value="f" >Female
                 <input class="inpcheck" type="radio" name="gender" id="in-gender" value="m" >Male
                 <input class="inputs" type="text" name="company" id="in-company" placeholder="Empresa" required>
-                <input class="inputs" type="text" name="address" id="in-address" placeholder="Endereço..." required>
-                <input class="inputs" type="text" name="phone" id="in-phone" maxlength="11" placeholder="Telefone" required>
-                <textarea class="inputs" name="comments" id="in-comments" cols="30" rows="5" placeholder="Comentarios..." required></textarea>
+                <input class="inputs" type="text" name="address" id="in-address" placeholder="Endereço...">
+                <input class="inputs" type="text" name="phone" id="in-phone" maxlength="11" placeholder="Telefone">
+                <textarea class="inputs" name="comments" id="in-comments" cols="30" rows="5" placeholder="Comentarios..."></textarea>
                 <label id="lblfavorito" for="fav">Favorito:</label> <input class="inpcheck" type="checkbox" name="fav" id="in-fav" value="true"><br>
                 <input class="btn-inserir" id="btn-inserir" type="submit" value="Salvar">
                 <input class="btn-inserir" type="reset" value="Limpar">

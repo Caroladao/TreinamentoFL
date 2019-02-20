@@ -42,17 +42,17 @@ export const Edicao = (Contatos,id) => {
             editar.innerHTML = `<form class="form-editar" method="POST" action="editar.html">
                 <img class="img-avatar" src="${Contatos[i].info.avatar}" alt="Avatar">
                 <input class="inputs" type="text" name="fname" id="ed-fname" maxlength="20" placeholder="Primeiro Nome" value="${Contatos[i].firstName}" required>
-                <input class="inputs" type="text" name="lname" id="ed-lname" maxlength="30" placeholder="Sobrenome" value="${Contatos[i].lastName}">
+                <input class="inputs" type="text" name="lname" id="ed-lname" maxlength="30" placeholder="Sobrenome" value="${Contatos[i].lastName}" required>
                 <input class="inputs" type="text" id="avatarr" value="${Contatos[i].info.avatar}" placeholder="URL da imagem">
                 <input class="inputs" type="email" name="email" id="ed-email" placeholder="Email: exemplo@exemplo.com" value="${Contatos[i].email}">`;
             if(Contatos[i].gender == 'f'){
-                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" checked>Female
+                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" checked required>Female
                 <input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="m">Male`;
             }else{
-                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f">Female
+                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" required>Female
                 <input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="m" checked>Male`;
             }
-            editar.innerHTML += `<input class="inputs" type="text" name="company" id="ed-company" placeholder="Empresa" value="${Contatos[i].info.company}">
+            editar.innerHTML += `<input class="inputs" type="text" name="company" id="ed-company" placeholder="Empresa" value="${Contatos[i].info.company}" required>
                 <input class="inputs" type="text" name="address" id="ed-address" placeholder="Endereço..." value="${Contatos[i].info.address}">
                 <input class="inputs" type="text" name="phone" id="ed-phone" maxlength="11" placeholder="Telefone" value="${Contatos[i].info.phone}" required>
                 <textarea class="inputs" name="comments" id="ed-comments" cols="30" rows="5" placeholder="Comentarios...">${Contatos[i].info.comments}</textarea>

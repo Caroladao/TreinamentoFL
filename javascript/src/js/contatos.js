@@ -4,6 +4,7 @@ import {Menu} from './js.js';
 import {Edicao} from './functions.js';
 import {Contatos} from './api';
 import {Favoritos} from './api';
+import ninguem from '../img/avatar.png';
 
 
 export const Listar = (ini,qtd) => {
@@ -34,9 +35,9 @@ export const Listar = (ini,qtd) => {
 }
 
 export const ListarFavoritos = (ini,qtd) => {
-    const boxesfav = document.getElementById('boxes-fav');
+    const boxes = document.getElementById('boxes');
     if(ini == 0){
-        boxesfav.innerHTML = "";
+        boxes.innerHTML = "";
     }
 
     const btn = document.getElementsByClassName('btn-mais')[0];
@@ -46,7 +47,7 @@ export const ListarFavoritos = (ini,qtd) => {
         btn.style.display = "block";
     }
     for(let i = ini ; i<qtd-1; i++){
-        boxesfav.innerHTML += desenhaBox(Favoritos[i]);     
+        boxes.innerHTML += desenhaBox(Favoritos[i]);     
     }
 
     console.log(qtd)
@@ -64,13 +65,14 @@ export const ListarFavoritos = (ini,qtd) => {
 
 export const desenhaBox = (contact) => {
     let img;
+    let avat;
     if(contact.isFavorite){
         img = favorito;
     }else{
         img = nfavorito;
     }
     return `<div class='box' id='${contact.id}'>
-            <img class='img-avatar' src='${contact.info.avatar}' alt='Avatar'>
+            <img class='img-avatar' src='${contact.info.avatar}'  onerror="this.src='${ninguem}'"  alt='Avatar'>
             <img class='img-favorito' id="${contact.id}" src='${img}' alt='Favorito'>
             <h3>${contact.firstName} ${contact.lastName}</h3>
             <p>${contact.email}<br>${contact.info.phone}</p></div>`;
