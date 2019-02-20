@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agenda de Contatos</title>
+</head>
+<body>
+    <header class="header">                               
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li id="li-ctt"><img class="nav-img" src="img/ctt.png" alt="Contatos">Contatos</li>
+                <li id="li-fav"><img class="nav-img" src="img/favorito.png" alt="Favoritos">Favoritos</li>
+                <li id="li-ins"><img class="nav-img" src="img/more.png" alt="Inserir">Inserir</li>
+                <li id="li-sobre"><img class="nav-img" src="img/sobre.png" alt="Sobre">Sobre</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="superior">
+        <nav class="nav-bar">
+            <img id="img-header1" class="icon-menu" src="img/menu.png" alt="Menu">
+            <img id="img-header2" src="img/contatos.png" alt="Contatos"> <span>Contatos</span>
+        </nav>
+
+        <div class="pesquisar">
+            <h1 id="h1-inserir">Inserir Contatos</h1>
+            <h1 id="h1-editar">Editar Contato</h1>
+            <form id="form-pesquisa">
+                <button class="btn-lupa" type="submit"></button>
+                <input type="text" id="busca" placeholder="Pesquisar..."/>
+            </form>
+        </div>
+    </div>
+    <main class="container">
+
+        <!-- SECTION QUE EXIBE OS CONTATOS -->
+        <section class="contatos" id="contatos">
+            <div class="boxes" id="boxes">
+                <!-- inner html -->
+            </div>
+            <div class="boxes-fav" id="boxes-fav">
+
+            </div>
+            <button class="btn-mais">Exibir mais</button>
+        </section>
+
+        <!-- SECTION DE INSERIR OS CONTATOS -->
+        <section class="inserir">
+            <form id="form-inserir">
+                <img class="img-avatar" id="img-avatar" src="./img/avatar.png" alt="Avatar">
+                <input class="inputs" type="text" name="fname" id="in-fname" maxlength="20" placeholder="Primeiro Nome" required>
+                <input class="inputs" type="text" name="lname" id="in-lname" maxlength="30" placeholder="Sobrenome" required>
+                <input class="inputs" type="text" id="in-avatar" placeholder="URL da imagem" required>
+                <input class="inputs" type="email" name="email" id="in-email" placeholder="Email: exemplo@exemplo.com" required>
+                <input class="inpcheck" type="radio" name="gender" id="in-gender" value="f" >Female
+                <input class="inpcheck" type="radio" name="gender" id="in-gender" value="m" >Male
+                <input class="inputs" type="text" name="company" id="in-company" placeholder="Empresa" required>
+                <input class="inputs" type="text" name="address" id="in-address" placeholder="Endereço..." required>
+                <input class="inputs" type="text" name="phone" id="in-phone" maxlength="11" placeholder="Telefone" required>
+                <textarea class="inputs" name="comments" id="in-comments" cols="30" rows="5" placeholder="Comentarios..." required></textarea>
+                <label id="lblfavorito" for="fav">Favorito:</label> <input class="inpcheck" type="checkbox" name="fav" id="in-fav" value="true"><br>
+                <input class="btn-inserir" id="btn-inserir" type="submit" value="Salvar">
+                <input class="btn-inserir" type="reset" value="Limpar">
+            </form>
+        </section>
+
+        <!-- SECTION DE EDIÇÃO DOS CONTATOS -->
+        <section class="editar" id="editar">
+            <!-- inner html -->
+        </section>
+        <div class="modal" id="modal">
+                    
+        </div>
+        <div class="modalSobre" id="modalSobre">
+            <div class="SobreContent">
+                <span class="closeSobre">&times;</span>
+                <h1>Feito por Caroline Adão</h1>
+                <h2>Agenda de Contatos</h2>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
