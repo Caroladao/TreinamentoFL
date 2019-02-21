@@ -512,7 +512,8 @@ form{
         position: fixed;
         width: 100%;
         z-index:4;
-        color: #fff;  
+        color: #fff; 
+        height: 11%; 
     }
     .nav-img{
         height: 30px;
@@ -583,7 +584,7 @@ form{
 
     /* --- EDITAR --- */
     .editar{
-        width: 93%;
+        width: 92%;
     }
     .editar .img-editar{
         height: 20px;
@@ -591,15 +592,15 @@ form{
         background: red;
     }
     .editar .img-avatar{
-        width: 110%;
+        width: 100%;
         height: auto;
-        border-radius: 0px;
-        margin: 0 -3% 1% -3%;
+        border-radius: 50%;
+        margin: 0 2%;
         float: none;
     }
     .editar .inputs, .editar #ed-fname,.editar #ed-lname,.editar #avatarr{
-        width: 98%;
-        margin: 1%;
+        width: 99%;
+        margin: 2%;
         float:none;
     }
     .modal-content h1{
