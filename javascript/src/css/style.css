@@ -271,8 +271,8 @@ form{
     float: left;
     box-shadow: 1px 1px 1px rgba(0,0,0,.5);
 }
-.inputs{
-    width: 90%;
+.inserir .inputs, .editar .inputs{
+    width: 96%;
     margin: 1%;
     font-size: 12pt;
     height: 30px;
@@ -288,7 +288,7 @@ form{
 }
 
 #in-fname,#in-lname,#in-avatar{
-    width: 68%;
+    width: 74%;
     display: inline;
 }
 #in-avatar{
@@ -318,10 +318,9 @@ form{
 
 /* --- EDITAR --- */
 .editar #ed-fname,.editar #ed-lname,.editar #avatarr{
-    width: 68%;
+    width: 74%;
     display: inline;
     float: right;
-    margin-right: 7%;
 }
 #avatarr{
     margin-top: 8%;
