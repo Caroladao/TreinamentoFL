@@ -48,11 +48,11 @@ export const Edicao = (Contatos,id) => {
                 <input class="inputs" type="text" id="avatarr" value="${Contatos[i].info.avatar}" placeholder="URL da imagem">
                 <input class="inputs" type="email" name="email" id="ed-email" placeholder="Email: exemplo@exemplo.com" value="${Contatos[i].email}">`;
             if(Contatos[i].gender == 'f'){
-                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" checked required>Female
-                <input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="m">Male`;
+                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" checked required>Feminino
+                <input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="m">Masculino`;
             }else{
-                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" required>Female
-                <input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="m" checked>Male`;
+                editar.innerHTML += `<input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="f" required>Feminino
+                <input class="inpcheck" type="radio" name="ed-gender" id="ed-gender" value="m" checked>Masculino`;
             }
             editar.innerHTML += `<input class="inputs" type="text" name="company" id="ed-company" placeholder="Empresa" value="${Contatos[i].info.company}" required>
                 <input class="inputs" type="text" name="address" id="ed-address" placeholder="Endereço..." value="${Contatos[i].info.address}">
