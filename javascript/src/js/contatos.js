@@ -2,8 +2,9 @@ import favorito from '../img/favorito.png';
 import nfavorito from '../img/nfavorito.png';
 import {Menu} from './js.js';
 import {Edicao} from './functions.js';
-import {Contatos} from './api';
+import {Contatos, ListarPesquisa} from './api';
 import {Favoritos} from './api';
+import {ResPesquisa} from './api';
 import ninguem from '../img/avatar.png';
 
 
@@ -77,7 +78,7 @@ export const desenhaBox = (contact) => {
 }
 
 
-const Paginacao = (tipo,inicio,qtd) => {
+export const Paginacao = (tipo,inicio,qtd) => {
     const btn = document.getElementsByClassName('btn-mais')[0];
     if(tipo == "contatos"){
         if(Contatos.length > qtd){
@@ -103,22 +104,4 @@ const Paginacao = (tipo,inicio,qtd) => {
             btn.style.display = 'none';
         }
     }
-    
 }
-
-// const array = document.getElementsByClassName('img-favorito');
-// for(let j = 0; j<array.length;j++){
-//     array[j].addEventListener('click', function() {
-//         let contact;
-//         for(let i=0;i<Contatos.length;i++){
-//             if(this.id == Contatos[i].id){
-//                 contact = Contatos[i];
-//             }
-//         }
-//         if(contact.isFavorite){
-//             array[j].src = nfavorito;
-//         }else{
-//             array[j].src = favorito;
-//         }
-//     });
-// }

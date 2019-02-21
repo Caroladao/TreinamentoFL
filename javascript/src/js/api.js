@@ -1,5 +1,5 @@
 // alert('oi');
-import {Listar, desenhaBox, ListarFavoritos} from './contatos'
+import {Listar, desenhaBox, ListarFavoritos, Paginacao} from './contatos'
 import favorito from '../img/favorito.png';
 import nfavorito from '../img/nfavorito.png';
 import { Menu, trocaClasse } from './js';
@@ -7,6 +7,7 @@ import { Edicao } from './functions.js';
 
 export let Contatos = [];
 export const Favoritos = [];
+export let ResPesquisa = [];
 const filter = '';
 
 export const getAll = async () => {
@@ -125,6 +126,10 @@ export const Adicionar = () => {
         modalAviso("Preencha o campo de Nome. (Min 3 letras)");
     }else if(document.getElementById("in-lname").value.length < 3){
         modalAviso("Preencha o campo de Sobrenome. (Min 3 letras)");
+    }else if(document.getElementById("in-address").value.length < 3){
+        modalAviso("Preencha o campo de Endereço. (Min 3 letras)");
+    }else if(document.getElementById("in-phone").value.length < 3){
+        modalAviso("Preencha o campo de Telefone. (Min 3 letras)");
     }else if(!getRadioValue('gender')){
         modalAviso("Selecione o sexo!");
     }else if(document.getElementById("in-company").value.length < 3){
@@ -195,6 +200,10 @@ export const Editar = (id) =>{
         modalAviso("Preencha o campo de Nome. (Min 3 letras)");
     }else if(document.getElementById("ed-lname").value.length < 3){
         modalAviso("Preencha o campo de Sobrenome. (Min 3 letras)");
+    }else if(document.getElementById("ed-address").value.length < 3){
+        modalAviso("Preencha o campo de Endereço. (Min 3 letras)");
+    }else if(document.getElementById("ed-phone").value.length < 3){
+        modalAviso("Preencha o campo de Telefone. (Min 3 letras)");
     }else if(!getRadioValue('ed-gender')){
         modalAviso("Selecione o sexo!");
     }else if(document.getElementById("ed-company").value.length < 3){
@@ -228,41 +237,55 @@ const getRadioValue = (radio) => {
 
 
 export const PesquisaContato = (texto) => {
-    const Reg = new RegExp(/^([a-zA-Zà-úÀ-Ú0-9]|'|\s)+$/);
     texto  = texto.toLowerCase();
-    let ResPesquisa = [];
+    ResPesquisa = [];
 
-    if(texto == '' || Reg.test(texto)){
-        ResPesquisa = Contatos.filter(c => {const NomeCompleto = `${c.firstName} ${c.lastName}`.toLowerCase()
-            if(NomeCompleto.includes(texto)){
-                return c;
-            }
-        })
+    if(!texto == ''){
+        ResPesquisa = Contatos.filter(e => new RegExp(texto, 'ig').test(`${e.firstName} ${e.lastName}`));
     }
-
-    const boxes = document.getElementById('boxes');
-    const btn = document.getElementsByClassName('btn-mais')[0];
-    btn.style.display = 'none';
-
-    boxes.innerHTML = '';
-    let i=0;
-
-    // console.log(ResPesquisa);
     
-    // for(i=0;i<qtd;i++){
-    for(const contact of ResPesquisa){
-        boxes.innerHTML += desenhaBox(contact);
-        i++;
-        if(i==9){
-            break;
-        }
+    ListarPesquisa(0,10);
+}
+
+export const ListarPesquisa = (ini,qtd) => {
+    const boxes = document.getElementById('boxes');
+    if(ini == 0){
+        boxes.innerHTML = "";
     }
-    const boxx = document.getElementsByClassName('box');
-    for(i = 0; i<boxx.length;i++){
-        boxx[i].addEventListener('click', function() {
-            Edicao(Contatos,this.id);
-            Menu('editar');
-        });
+    const btn = document.getElementsByClassName('btn-mais')[0];
+    if(ResPesquisa.length < 10){
+        btn.style.display = "none";
+    }else{
+        btn.style.display = "block";
+    }
+
+    if(ResPesquisa.length == 0){
+        qtd = 0;
+    }
+    const ar = document.getElementsByClassName('box');
+    for(let i = ini ; i<qtd-1; i++){
+        boxes.innerHTML += desenhaBox(ResPesquisa[i]);
+        
+        for(let j = 0; j<ar.length;j++){
+            ar[j].addEventListener('click', function() {
+                Edicao(Contatos,this.id);
+                Menu('editar');
+            });
+        }   
+    }
+    
+    
+    qtd +=10;
+
+    if(ResPesquisa.length > qtd){
+        btn.onclick = function(){
+            ListarPesquisa(qtd-10,qtd);
+        }
+    }else{
+        btn.onclick = function(){
+            ListarPesquisa(qtd-10,ResPesquisa.length);
+            btn.style.display = 'none';
+        }
     }
 }
 
@@ -270,7 +293,12 @@ PesquisaContato('');
 
     const search = document.getElementById('busca');
     search.onkeyup = ({ target: { value }}) => {
-        PesquisaContato(value);
+        if(value.length >0 ){
+            PesquisaContato(value);
+        }else{
+            Listar(0,10);
+        }
     }   
+
 
 
