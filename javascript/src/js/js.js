@@ -72,6 +72,8 @@ export const Menu = ($sessao) => {
         trocaClasse(lictt,'li-ativada','li');
     }
 
+    localStorage.setItem('flag', false);
+
     
     if($sessao == 'inserir'){
         ins.style.display = 'block';
@@ -95,6 +97,7 @@ export const Menu = ($sessao) => {
         pes.style.display = 'block';
         ListarFavoritos(0,10);
         trocaClasse(lifav,'li','li-ativada');
+        localStorage.setItem('flag', true);
     }
     else{
         ctt.style.display = "block";
@@ -102,10 +105,12 @@ export const Menu = ($sessao) => {
         pes.style.display = 'block';
         Listar(0,10);
         trocaClasse(lictt,'li','li-ativada');
+        localStorage.setItem('flag', false);
+        console.log('flag:'+ localStorage.getItem('flag'));
     }
 }
 
-const trocaClasse = (elemento, antiga, nova) => {
+export const trocaClasse = (elemento, antiga, nova) => {
     elemento.classList.remove(antiga);
     elemento.classList.add(nova);
 }

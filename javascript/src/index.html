@@ -7,6 +7,18 @@
     <title>Agenda de Contatos</title>
 </head>
 <body>
+    <div class="carregando">
+        <h1>Carregando...</h1>
+    </div>
+
+    <div class="modalAvisos">
+        <div class="avisoContent">
+            <span class="closeAviso">&times;</span>
+            <p id="conteudoAviso"></p>
+            <button id="btnAviso">OK</button>
+        </div>
+    </div>
+
     <header class="header">                               
         <nav class="nav-menu" id="nav-menu">
             <ul>
@@ -49,15 +61,15 @@
                 <input class="inputs" type="text" name="fname" id="in-fname" maxlength="20" placeholder="Primeiro Nome" required>
                 <input class="inputs" type="text" name="lname" id="in-lname" maxlength="30" placeholder="Sobrenome" required>
                 <input class="inputs" type="text" id="in-avatar" placeholder="URL da imagem" required>
-                <input class="inputs" type="email" name="email" id="in-email" placeholder="Email: exemplo@exemplo.com">
+                <input class="inputs" type="text" name="email" id="in-email" placeholder="Email: exemplo@exemplo.com">
                 <input class="inpcheck" type="radio" name="gender" id="in-gender" value="f" >Female
                 <input class="inpcheck" type="radio" name="gender" id="in-gender" value="m" >Male
                 <input class="inputs" type="text" name="company" id="in-company" placeholder="Empresa" required>
                 <input class="inputs" type="text" name="address" id="in-address" placeholder="Endereço...">
-                <input class="inputs" type="text" name="phone" id="in-phone" maxlength="11" placeholder="Telefone">
+                <input class="inputs" type="text" name="phone" id="in-phone" maxlength="15" placeholder="Telefone">
                 <textarea class="inputs" name="comments" id="in-comments" cols="30" rows="5" placeholder="Comentarios..."></textarea>
                 <label id="lblfavorito" for="fav">Favorito:</label> <input class="inpcheck" type="checkbox" name="fav" id="in-fav" value="true"><br>
-                <input class="btn-inserir" id="btn-inserir" type="submit" value="Salvar">
+                <input class="btn-inserir" id="btn-inserir" type="button" value="Salvar">
                 <input class="btn-inserir" type="reset" value="Limpar">
             </form>
         </section>

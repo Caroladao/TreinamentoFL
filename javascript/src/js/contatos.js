@@ -65,7 +65,6 @@ export const ListarFavoritos = (ini,qtd) => {
 
 export const desenhaBox = (contact) => {
     let img;
-    let avat;
     if(contact.isFavorite){
         img = favorito;
     }else{
@@ -107,3 +106,20 @@ const Paginacao = (tipo,inicio,qtd) => {
     }
     
 }
+
+// const array = document.getElementsByClassName('img-favorito');
+// for(let j = 0; j<array.length;j++){
+//     array[j].addEventListener('click', function() {
+//         let contact;
+//         for(let i=0;i<Contatos.length;i++){
+//             if(this.id == Contatos[i].id){
+//                 contact = Contatos[i];
+//             }
+//         }
+//         if(contact.isFavorite){
+//             array[j].src = nfavorito;
+//         }else{
+//             array[j].src = favorito;
+//         }
+//     });
+// }

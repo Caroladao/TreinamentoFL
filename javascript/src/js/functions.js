@@ -1,5 +1,6 @@
 import {deletarContato} from './api'
 
+
 export const abrirModal = (Contatos,id) => {
     const modal = document.getElementById('modal');
     let contato;
@@ -54,7 +55,7 @@ export const Edicao = (Contatos,id) => {
             }
             editar.innerHTML += `<input class="inputs" type="text" name="company" id="ed-company" placeholder="Empresa" value="${Contatos[i].info.company}" required>
                 <input class="inputs" type="text" name="address" id="ed-address" placeholder="Endereço..." value="${Contatos[i].info.address}">
-                <input class="inputs" type="text" name="phone" id="ed-phone" maxlength="11" placeholder="Telefone" value="${Contatos[i].info.phone}" required>
+                <input class="inputs" type="text" name="phone" id="ed-phone" maxlength="15" placeholder="Telefone" value="${Contatos[i].info.phone}" required>
                 <textarea class="inputs" name="comments" id="ed-comments" cols="30" rows="5" placeholder="Comentarios...">${Contatos[i].info.comments}</textarea>
                 <label id="lblfavorito" for="fav">Favorito:</label>`;
             if(Contatos[i].isFavorite){
@@ -62,7 +63,7 @@ export const Edicao = (Contatos,id) => {
             }else{
                 editar.innerHTML += `<input class="inpcheck" type="checkbox" name="fav" id="ed-fav" value="true"><br>`;
             }
-            editar.innerHTML += `<input class="btn-editar" id="${Contatos[i].id}" type="button" value="Salvar">
+            editar.innerHTML += `<input class="btn-editar" id="${Contatos[i].id}" type="submit" value="Salvar">
                 <input class="btn-editar" id="btn-excluir" type="reset" value="Excluir">
             </form> `;
         }
