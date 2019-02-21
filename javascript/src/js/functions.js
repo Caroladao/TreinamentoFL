@@ -1,4 +1,5 @@
 import {deletarContato} from './api'
+import ninguem from '../img/avatar.png';
 
 
 export const abrirModal = (Contatos,id) => {
@@ -41,7 +42,7 @@ export const Edicao = (Contatos,id) => {
         if(id == Contatos[i].id){
             editar.style.display = 'block';
             editar.innerHTML = `<form class="form-editar" method="POST" action="editar.html">
-                <img class="img-avatar" src="${Contatos[i].info.avatar}" alt="Avatar">
+                <img class="img-avatar" src="${Contatos[i].info.avatar}" onerror="this.src='${ninguem}'" alt="Avatar">
                 <input class="inputs" type="text" name="fname" id="ed-fname" maxlength="20" placeholder="Primeiro Nome" value="${Contatos[i].firstName}" required>
                 <input class="inputs" type="text" name="lname" id="ed-lname" maxlength="30" placeholder="Sobrenome" value="${Contatos[i].lastName}" required>
                 <input class="inputs" type="text" id="avatarr" value="${Contatos[i].info.avatar}" placeholder="URL da imagem">

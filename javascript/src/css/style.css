@@ -15,15 +15,13 @@ body{
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    text-align: center;
 }
-.carregando h1{
-    color: white;
-    font-size: 60pt;
+.carregando img{
+    width: 40%;
+    filter: invert(100%);
 }
-
 /* -------- MENU LATERAL -------- */
 .nav-bar{
     position: absolute;
@@ -456,12 +454,9 @@ form{
 }
 
 @media only screen and (max-width: 715px) {
-    .carregando h1{
-        color: white;
-        font-size: 40pt;
+    .carregando img{
+        width: 100%;
     }
-
-    
 
     /* ---- CONTATOS ---- */
     .box{

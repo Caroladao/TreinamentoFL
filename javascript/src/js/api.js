@@ -50,7 +50,7 @@ export const deletarContato = async (id) => {
             }
         )
         if (res.status == 200) {
-            alert("Excluido");
+            modalAviso("Excluido");
             window.location.reload(false);
         }
         getAll();
@@ -73,7 +73,7 @@ export const adicionarContato = async (contato) => {
             }
         )
         if (res.status == 201) { 
-            alert("Adicionado");
+            modalAviso("Adicionado");
             window.location.reload(false);
         }
         throw await res.json()
@@ -95,7 +95,7 @@ export const atualizarContato = async (contato,id) => {
             }
         )
         if (res.status == 200) { 
-            alert("Atualizado");
+            modalAviso("Atualizado");
             window.location.reload(false);
         }
         throw await res.json()
