@@ -50,7 +50,6 @@ export const ListarFavoritos = (ini,qtd) => {
         boxes.innerHTML += desenhaBox(Favoritos[i]);     
     }
 
-    console.log(qtd)
     
     Paginacao('favoritos',qtd,qtd+10);
 

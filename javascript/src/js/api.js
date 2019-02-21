@@ -3,7 +3,7 @@ import {Listar, desenhaBox, ListarFavoritos} from './contatos'
 import favorito from '../img/favorito.png';
 import nfavorito from '../img/nfavorito.png';
 import { Menu, trocaClasse } from './js';
-import { Edicao } from './functions';
+import { Edicao } from './functions.js';
 
 export let Contatos = [];
 export const Favoritos = [];
@@ -28,8 +28,8 @@ export const getAll = async () => {
 getAll().then(() => {
     const carregando = document.getElementsByClassName('carregando')[0];
     carregando.style.display = 'none';
-    let flag = localStorage.getItem('flag');
-    console.log(flag);
+    const flag = localStorage.getItem('flag');
+
     if(flag == 'true'){
         const fav = document.getElementById('li-fav');
         trocaClasse(fav,'li','li-ativada');
@@ -142,7 +142,6 @@ export const Adicionar = () => {
             phone       : document.getElementById("in-phone").value,
             comments    : document.getElementById("in-comments").value
         });
-        console.log(contato);
         adicionarContato(contato);
     }
 }
@@ -168,7 +167,7 @@ const modalAviso = (conteudo) =>{
 }
 
 const IsEmail = (email) =>{
-    let er = new RegExp(/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/);
+    const er = new RegExp(/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/);
     if(typeof(email) == "string"){
         if(er.test(email)){
              return true; 
@@ -259,12 +258,12 @@ export const PesquisaContato = (texto) => {
         }
     }
     const boxx = document.getElementsByClassName('box');
-        for(i = 0; i<boxx.length;i++){
-            boxx[i].addEventListener('click', function() {
-                Edicao(Contatos,this.id);
-                Menu('editar');
-            });
-        }
+    for(i = 0; i<boxx.length;i++){
+        boxx[i].addEventListener('click', function() {
+            Edicao(Contatos,this.id);
+            Menu('editar');
+        });
+    }
 }
 
 PesquisaContato('');

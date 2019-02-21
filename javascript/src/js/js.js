@@ -8,8 +8,6 @@ import {Favoritos} from './api';
 let menuOpen = false;
 // alert('oi');
 
-console.log(Favoritos);
-console.log(Contatos);
 
 document.getElementById('img-header1').onclick = function(){
     abreMenu();
@@ -106,7 +104,6 @@ export const Menu = ($sessao) => {
         Listar(0,10);
         trocaClasse(lictt,'li','li-ativada');
         localStorage.setItem('flag', false);
-        console.log('flag:'+ localStorage.getItem('flag'));
     }
 }
 

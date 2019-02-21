@@ -38,7 +38,7 @@ export const Edicao = (Contatos,id) => {
     const editar = document.getElementById('editar');
    
     for(let i=0; i<Contatos.length;i++){
-        if(id== Contatos[i].id){
+        if(id == Contatos[i].id){
             editar.style.display = 'block';
             editar.innerHTML = `<form class="form-editar" method="POST" action="editar.html">
                 <img class="img-avatar" src="${Contatos[i].info.avatar}" alt="Avatar">
