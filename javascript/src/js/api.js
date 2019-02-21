@@ -119,17 +119,29 @@ export const Adicionar = () => {
     }else{
         fav = false;
     }
+
+    let address = document.getElementById("in-address").value;
+    let phone = document.getElementById("in-phone").value;
+
+
+    if(address.length > 0 && address.length < 3){
+        modalAviso("Preencha o campo de Endereço. (Min 3 letras)");
+    }else if(address.length == 0){
+        address = 'null';
+    }
     
+    if(phone.length > 0 && phone.length < 3){
+        modalAviso("Preencha o campo de Telefone. (Min 3 letras)");
+    }else if(phone.length == 0){
+        phone = 'null';
+    }
+
     if(!IsEmail(document.getElementById("in-email").value)){
-        modalAviso("Email inválido");
+        modalAviso("Email inválido)");
     }else if(document.getElementById("in-fname").value.length < 3){
         modalAviso("Preencha o campo de Nome. (Min 3 letras)");
     }else if(document.getElementById("in-lname").value.length < 3){
         modalAviso("Preencha o campo de Sobrenome. (Min 3 letras)");
-    }else if(document.getElementById("in-address").value.length < 3){
-        modalAviso("Preencha o campo de Endereço. (Min 3 letras)");
-    }else if(document.getElementById("in-phone").value.length < 3){
-        modalAviso("Preencha o campo de Telefone. (Min 3 letras)");
     }else if(!getRadioValue('gender')){
         modalAviso("Selecione o sexo!");
     }else if(document.getElementById("in-company").value.length < 3){
@@ -143,8 +155,8 @@ export const Adicionar = () => {
             isFavorite  : fav,
             company     : document.getElementById("in-company").value,
             avatar      : document.getElementById("in-avatar").value,
-            address     : document.getElementById("in-address").value,
-            phone       : document.getElementById("in-phone").value,
+            address     : address,
+            phone       : phone,
             comments    : document.getElementById("in-comments").value
         });
         adicionarContato(contato);
@@ -173,6 +185,13 @@ const modalAviso = (conteudo) =>{
 
 const IsEmail = (email) =>{
     const er = new RegExp(/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/);
+    let existe = false;
+    for(let i = 0; i<Contatos.length;i++){
+        if(email == Contatos[i].email){
+            existe = true;
+        }
+    }
+
     if(typeof(email) == "string"){
         if(er.test(email)){
              return true; 
@@ -181,6 +200,8 @@ const IsEmail = (email) =>{
         if(er.test(email.value)){
             return true; 				
         }	
+    }else if(existe){
+        return false;
     }else{
         return false;
 	}
@@ -194,6 +215,24 @@ export const Editar = (id) =>{
     }else{
         fav = false;
     }
+
+
+    let address = document.getElementById("ed-address").value;
+    let phone = document.getElementById("ed-phone").value;
+
+
+    if(address.length > 0 && address.length < 3){
+        modalAviso("Preencha o campo de Endereço. (Min 3 letras)");
+    }else if(address.length == 0){
+        address = 'null';
+    }
+    
+    if(phone.length > 0 && phone.length < 3){
+        modalAviso("Preencha o campo de Telefone. (Min 3 letras)");
+    }else if(phone.length == 0){
+        phone = 'null';
+    }
+
     if(!IsEmail(document.getElementById("ed-email").value)){
         modalAviso("Email inválido");
     }else if(document.getElementById("ed-fname").value.length < 3){
@@ -217,8 +256,8 @@ export const Editar = (id) =>{
             isFavorite  : fav,
             company     : document.getElementById("ed-company").value,
             avatar      : document.getElementById("avatarr").value,
-            address     : document.getElementById("ed-address").value,
-            phone       : document.getElementById("ed-phone").value,
+            address     : address,
+            phone       : phone,
             comments    : document.getElementById("ed-comments").value
         });
     
