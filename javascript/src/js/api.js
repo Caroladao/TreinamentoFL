@@ -292,7 +292,7 @@ export const ListarPesquisa = (ini,qtd) => {
         boxes.innerHTML = "";
     }
     const btn = document.getElementsByClassName('btn-mais')[0];
-    if(ResPesquisa.length < 10){
+    if(ResPesquisa.length < 9){
         btn.style.display = "none";
     }else{
         btn.style.display = "block";
@@ -312,18 +312,21 @@ export const ListarPesquisa = (ini,qtd) => {
             });
         }   
     }
-    
-    
-    qtd +=10;
+    if(ResPesquisa.length <= qtd){
+        btn.style.display = "none";
+    }
 
+    console.log('antes: '+qtd + ' + '+ ResPesquisa.length);
+    qtd +=10;
+    console.log('depois: '+qtd + ' + ' +ResPesquisa.length);
+    
     if(ResPesquisa.length > qtd){
         btn.onclick = function(){
             ListarPesquisa(qtd-10,qtd);
         }
-    }else{
+    }else if(qtd-10 > 9){
         btn.onclick = function(){
-            ListarPesquisa(qtd-10,ResPesquisa.length);
-            btn.style.display = 'none';
+            ListarPesquisa(qtd-10,ResPesquisa.length+1);    
         }
     }
 }
