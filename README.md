@@ -1,4 +1,4 @@
 # Treinamento Forlogic
 
 ## Html/Css - ok
-## JavaScript - ...
+## JavaScript - ok
