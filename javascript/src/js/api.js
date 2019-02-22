@@ -239,10 +239,6 @@ export const Editar = (id) =>{
         modalAviso("Preencha o campo de Nome. (Min 3 letras)");
     }else if(document.getElementById("ed-lname").value.length < 3){
         modalAviso("Preencha o campo de Sobrenome. (Min 3 letras)");
-    }else if(document.getElementById("ed-address").value.length < 3){
-        modalAviso("Preencha o campo de Endereço. (Min 3 letras)");
-    }else if(document.getElementById("ed-phone").value.length < 3){
-        modalAviso("Preencha o campo de Telefone. (Min 3 letras)");
     }else if(!getRadioValue('ed-gender')){
         modalAviso("Selecione o sexo!");
     }else if(document.getElementById("ed-company").value.length < 3){
@@ -324,7 +320,7 @@ export const ListarPesquisa = (ini,qtd) => {
         btn.onclick = function(){
             ListarPesquisa(qtd-10,qtd);
         }
-    }else if(qtd-10 > 9){
+    }else{
         btn.onclick = function(){
             ListarPesquisa(qtd-10,ResPesquisa.length+1);    
         }
